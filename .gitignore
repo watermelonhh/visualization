@@ -1,0 +1,29 @@
+# 忽略 Qt 编译文件
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+*.a
+*.lib
+
+# Qt Creator 项目文件
+*.user
+*.pro.user
+*.autosave
+
+# 编译输出目录
+build-*/
+
+# 临时文件
+*.log
+*.tmp
+*.swp
+*.swo
+.DS_Store
+
+# CMake 生成文件（如果你用了 CMake）
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
