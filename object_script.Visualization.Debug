@@ -6,6 +6,7 @@ debug/mainwindow.o
 debug/networkwindow.o
 debug/qcustomplot.o
 debug/serialwindow.o
+debug/udpsender.o
 debug/qrc_src.o
 debug/moc_autoue.o
 debug/moc_filewindow.o
@@ -13,3 +14,4 @@ debug/moc_mainwindow.o
 debug/moc_networkwindow.o
 debug/moc_qcustomplot.o
 debug/moc_serialwindow.o
+debug/moc_udpsender.o

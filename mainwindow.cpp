@@ -16,8 +16,9 @@
 #include <qstring.h>
 #include <qtimer.h>
 #include <qcustomplot.h>
-#include "global.h"
-
+#include "global.h" //全局变量，用来处理的filedatalist放在里面了
+#include "autoue.h"
+#include "udpsender.h"
 
 UPLOAD_COMPLEX_PACKET g_processbuffer = {0};
 void get_dsp(R232_MODULE *pr232Module);//解包
@@ -37,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
     , networkWindowptr(nullptr)  // 延迟创建，点了按钮之后才会出现窗口
 {
     ui->setupUi(this);
-
+    udpSender = new UDPSender(this);  // 初始化UDP发送器
 
      QAction *actionFileptr = ui->actionFile->addAction("Open File");
      QAction *actionSerialptr = ui->actionSerial->addAction("Open File");
@@ -48,12 +49,15 @@ MainWindow::MainWindow(QWidget *parent)
     connect(actionSerialptr, &QAction::triggered, this, &MainWindow::openSerialWindow);
     //connect(actionNetworkptr, &QAction::triggered, this, &MainWindow::openNetworkWindow);
     connect(ui->actionNetwork, &QMenu::aboutToShow, this, &MainWindow::openNetworkWindow);
+    udpSender->sendPosition(23915,23990,8765);
 
     if(ui->mytextEdit) {
            ui->mytextEdit->setPlainText("UI初始化成功！");
        } else {
            qDebug() << "错误：未找到mytextEdit控件";
        }
+
+
 }
 
 MainWindow::~MainWindow()
@@ -106,7 +110,7 @@ void MainWindow::openFile()
        }
 
        // ✅ 清空旧数据
-          filedataList.clear();
+          filedataList.clear(); //画图的写在了全局变量
           filedatatextList.clear();
           timelist.clear();
 
@@ -186,6 +190,9 @@ void MainWindow::openFile()
 
        plotGraph();  //调用绘图函数
        startTextTimer();//显示左上角那个框框的
+       //自动ue中显示
+       autoue a;  //实例化了才能用里面的函数
+       a.on_pushButton_clicked();
        return;
 }
 

@@ -8,6 +8,7 @@
 #include <WS2tcpip.h>
 #include <Windows.h>
 
+class Point3f; // 前向声明
 class autoue : public QObject
 {
     Q_OBJECT
@@ -16,17 +17,20 @@ public:
 
 signals:
 private:
-    void on_pushButton_clicked();// 发送数据 按钮
+
     // 你的代码中的成员变量和函数
     char sendBuf[65536];
-    std::vector<class Point3f> trajectory;
+    std::vector<Point3f>* trajectory;
+    //std::vector<class Point3f> trajectory;
 
     void UnderwaterGuideTrajectoryGenerator();
     void TrajectoryGenerator();
     std::string GenerateSendDataFromPoint3d(Point3f& point);
     void CopyStringToCharArray(std::string str, char* arr);
 
-    void appendOutput(const QString& text);  // 用于追加输出到 QTextEdit
+    //void appendOutput(const QString& text);  // 用于追加输出到 QTextEdit
+public:
+    void on_pushButton_clicked();// 发送数据 按钮
 };
 
 #endif // AUTOUE_H

@@ -46,6 +46,7 @@ public:
     QMenu *actionFile;
     QMenu *actionSerial;
     QMenu *actionNetwork;
+    QMenu *depthmenu;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -123,6 +124,8 @@ public:
         actionSerial->setObjectName(QString::fromUtf8("actionSerial"));
         actionNetwork = new QMenu(menubar);
         actionNetwork->setObjectName(QString::fromUtf8("actionNetwork"));
+        depthmenu = new QMenu(menubar);
+        depthmenu->setObjectName(QString::fromUtf8("depthmenu"));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -131,6 +134,7 @@ public:
         menubar->addAction(actionFile->menuAction());
         menubar->addAction(actionSerial->menuAction());
         menubar->addAction(actionNetwork->menuAction());
+        menubar->addAction(depthmenu->menuAction());
 
         retranslateUi(MainWindow);
 
@@ -146,6 +150,7 @@ public:
         actionFile->setTitle(QApplication::translate("MainWindow", "\346\226\207\344\273\266\350\257\273\345\217\226", nullptr));
         actionSerial->setTitle(QApplication::translate("MainWindow", "\344\270\262\345\217\243\351\205\215\347\275\256", nullptr));
         actionNetwork->setTitle(QApplication::translate("MainWindow", "\347\275\221\345\217\243\351\205\215\347\275\256", nullptr));
+        depthmenu->setTitle(QApplication::translate("MainWindow", "\346\267\261\345\272\246\351\205\215\347\275\256", nullptr));
     } // retranslateUi
 
 };

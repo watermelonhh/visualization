@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include "udpsender.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -32,5 +32,6 @@ private:
     FileWindow *fileWindowptr;
     SerialWindow *serialWindowptr;
     NetworkWindow *networkWindowptr;
+    UDPSender *udpSender;       // UDP发送器实例
 };
 #endif // MAINWINDOW_H

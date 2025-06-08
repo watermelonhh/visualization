@@ -19,7 +19,8 @@ SOURCES += \
     mainwindow.cpp \
     networkwindow.cpp \
     qcustomplot.cpp \
-    serialwindow.cpp
+    serialwindow.cpp \
+    udpsender.cpp
 
 HEADERS += \
     autoue.h \
@@ -29,7 +30,8 @@ HEADERS += \
     mainwindow.h \
     networkwindow.h \
     qcustomplot.h \
-    serialwindow.h
+    serialwindow.h \
+    udpsender.h
 
 FORMS += \
     mainwindow.ui \

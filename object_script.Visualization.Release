@@ -6,6 +6,7 @@ release/mainwindow.o
 release/networkwindow.o
 release/qcustomplot.o
 release/serialwindow.o
+release/udpsender.o
 release/qrc_src.o
 release/moc_autoue.o
 release/moc_filewindow.o
@@ -13,3 +14,4 @@ release/moc_mainwindow.o
 release/moc_networkwindow.o
 release/moc_qcustomplot.o
 release/moc_serialwindow.o
+release/moc_udpsender.o
